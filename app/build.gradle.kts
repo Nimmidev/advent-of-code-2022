@@ -40,3 +40,7 @@ application {
     // Define the main class for the application.
     mainClass.set("aoc.AppKt")
 }
+
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
+}
