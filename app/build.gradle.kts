@@ -43,4 +43,5 @@ application {
 
 tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
+    enableAssertions = true
 }
