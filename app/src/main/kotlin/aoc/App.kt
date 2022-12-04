@@ -6,7 +6,7 @@ import readInput
 
 fun main() {
     var day: Int? = null
-    val maxDay = 3
+    val maxDay = 4
 
     while(day == null){
         print("Select day to run (1-$maxDay): ")
@@ -32,5 +32,8 @@ fun main() {
     } else if(day == 3){
         day3Task1()
         day3Task2()
+    } else if(day == 4){
+        day4Task1()
+        day4Task2()
     }
 }
