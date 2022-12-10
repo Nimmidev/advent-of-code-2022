@@ -3,29 +3,27 @@ package aoc
 import readInput
 
 fun day1Task1(){
-    val lines = readInput("day1-input")!!
     var caloriesTotal = 0;
-    var caloriesMax = 0;
+    var result = 0;
 
-    for(line in lines){
+    for(line in readInput("day1-input")!!){
         if(line.isEmpty()){
-            if(caloriesTotal > caloriesMax) caloriesMax = caloriesTotal;
+            if(caloriesTotal > result) result = caloriesTotal;
             caloriesTotal = 0;
         } else {
             caloriesTotal += line.toInt()
         }
     }
 
-    println("Elf with the most calories is carrying a total of $caloriesMax calories.")
+    println("Result: $result")
+    assert(result == 69528)
 }
 
 fun day1Task2(){
-    val lines = readInput("day1-input")!!
-
     var caloriesTotal = 0;
     var caloriesMaxList = mutableListOf<Int>();
 
-    for(line in lines){
+    for(line in readInput("day1-input")!!){
         if(line.isEmpty()){
             if(caloriesMaxList.size < 3){
                 caloriesMaxList.add(caloriesTotal)
@@ -44,6 +42,7 @@ fun day1Task2(){
         }
     }
 
-    val total = caloriesMaxList.sum()
-    println("The top three elfs have a total of $total calories.")
+    val result = caloriesMaxList.sum()
+    println("Result: $result")
+    assert(result == 206152)
 }
