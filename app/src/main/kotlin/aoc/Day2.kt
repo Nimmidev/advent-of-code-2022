@@ -35,31 +35,31 @@ val charOutcomeMap = mapOf(
 )
 
 fun day2Task1(){
-    val lines = readInput("day2-input")!!
-    var score = 0
+    var result = 0
     
-    for(line in lines){
+    for(line in readInput("day2-input")!!){
         val (choiceOpponent, choiceYou) = line.split(" ").map { charChoiceMap[it]!! }
-        score += choiceYou.score
+        result += choiceYou.score
 
-        if(choiceOpponent == choiceYou) score += Outcome.Draw.score
-        else if(choiceOpponent.weakAgainst == choiceYou) score += Outcome.Win.score
+        if(choiceOpponent == choiceYou) result += Outcome.Draw.score
+        else if(choiceOpponent.weakAgainst == choiceYou) result += Outcome.Win.score
     }
 
-    println("Total score: $score")
+    println("Result: $result")
+    assert(result == 11603)
 }
 
 fun day2Task2(){
-    val lines = readInput("day2-input")!!
-    var score = 0
+    var result = 0
     
-    for(line in lines){
+    for(line in readInput("day2-input")!!){
         val (choiceOpponent, outcome) = line.split(" ").let { 
             Pair(charChoiceMap[it[0]]!!, charOutcomeMap[it[1]]!!)
         }
 
-        score += outcome.choiceFor(choiceOpponent).score + outcome.score
+        result += outcome.choiceFor(choiceOpponent).score + outcome.score
     }
 
-    println("Total score: $score")
+    println("Result: $result")
+    assert(result == 12725)
 }
